@@ -1,0 +1,69 @@
+GUI INSTRUCTIONS:-----------------
+- The Chess Board:
+	The chess squares are interactive. They display the current state of the game, and work as
+	input widgets to play the game. They react to mouse hovering, clearly indicating the position
+	of the cursor, and which square is about to be clicked.
+	Clicking a square/piece will select it, which is visible as a white outline around the chess piece
+	(empty squares can't be selected). Selecting a square/piece will then highlight all other squares
+	to which legal moves can be made, with a red dot. Legal captures are highlighted with a red outline.
+	Clicking on a moveable square will perform said chess move and update the board and game logic.
+	Only the pieces of the color whose turn it is may be selected, so if a piece is unselectable,
+	it is of the wrong color. Correct-color pieces are selectable regardless of whether or not they have
+	legal moves available to them.
+	After the game is over, the whole board is disabled until a new game is started with the restart button.
+- The Restart Button:
+	This button starts a new game of chess, resetting the game logic and Chess squares to the starting
+	configuration. A new game can be started at any time, regardless of the current state of the game.
+- The Theme Combobox:
+	Here, different themes (internally color schemes) may be selected. More can be added relatively
+	easily in the resource file color_schemes.txt.
+- The Flip Board Button:
+	clicking this button will rotate/flip the chess board 180 degrees, so that the colors switch sides.
+	Convenient if two players are playing. the board can be flipped anytime, even when the game is over.
+- The Quit Button:
+	it quits.
+
+CHESS MOVEMENT RULES:
+- GENERALLY
+	pieces can move only into free spaces, or capture opposing pieces.
+	stepping over or onto squares with friendly pieces is disallowed.
+- PAWNS
+	can move only one step at a time, and only in the forward direction.
+	They may and must capture diagonally, though; only pieces in the forward
+	diagonal squares can be captured, not the ones directly in front.
+	On it's first move, a pawn may take a double step forward, but this is an exception.
+- KNIGHTS
+	can exceptionally jump over other pieces. A knight may move to any square whose center is exactly
+	a distance of sqrt(5) chess-square-sides away from the center of it's current square.
+- BISHOPS
+	may move diagonally up to the edge of the border or another piece.
+- ROOKS
+	may move straight left, right, up or down, as far as free squares go.
+- QUEENS 
+	can move anywhere a rook or bishop could move from the same spot.
+- KINGS
+	may move one step in any of the eight directions.
+
+The game is over when either king is captured, resulting in a win for the capturer and loss for the captured.
+
+	
+ADDITIONS/CHANGES TO BASE CODE:----------
+- added sum operators to Coord-struct for simpler code
+- changed NULL_COORD definition to {MIN_INT, MIN_INT} to free up {-1, -1}
+- added 8 const Coords to represent important directions
+- added check_moves_in_dir-method to ChessPiece, used for Rook, Bishop and Queen
+- changed order of PieceType enum for utility in PieceImage
+
+
+AMAZING THINGS:-----------------------
+I changed the chess piece images completely for my own original pixel art. The board is my art as well.
+The flip board and theme options are also extra additions to the project. 
+This project relies heavily on the built in mechanics of Qt. Especially QImage is strongly utilized, along with 
+QGridLayout and a custom ChessSquareWidget that inherits directly from QWidget. Even QFiles are included!
+The resulting project is, I think, very nice and clean.
+
+It seems my additions have caused problems with the automatic verifying in Plussa. 
+nevertheless, I'm still very proud of this project!
+
+
+

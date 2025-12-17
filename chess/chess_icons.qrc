@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>pieces/board.png</file>
+        <file>pieces/board_flipped.png</file>
+        <file>pieces/color_schemes.txt</file>
+        <file>pieces/pieces.png</file>
+    </qresource>
+</RCC>
